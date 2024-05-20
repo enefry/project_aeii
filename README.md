@@ -1,43 +1,26 @@
-# About
+# Project Structure
 
-**Ancient Empires Reloaded** is a remastered version of the game **Ancient Empires II** on Symbian platform. This remastered version provides supports for Desktop, Android and iOS platfroms. New features are listed below.
-* New tiles
-* New & renewed units
-* New abilities
-* New & renewed status
-* New campaigns
-* Map editor
-* Online map sharing
-* Online multiplayer mode
+* **campaigns** / All campaign language texts go here.
+* **languages** / All general game language texts go here.
+* **fonts** / All the fonts used to render texts.
 
-Our [website](http://toyknight.net/aeii)
+# Translation Guide
 
-# Licence
+To begin translation, yout need to know a couple of things. So let's begin.
 
-The game's code is under GNU General Public License version 3. You can use the assets of this game without any permission or restriction.
+### How To Create A Translation?
 
-# Contribute a new language support
+Login into your in-game online account, there will be a button to let you create a new translation. (iOS not supported for now)
 
-Follow the steps below to contribute a new language support:
+### Language File Structure
 
-1. Fork the project to your repository.
-2. Install [Github Desktop](https://desktop.github.com/) and check out the forked project.
-3. Find your country's locale ID from [JDK 6 and JRE 6 Supported Locales](http://www.oracle.com/technetwork/java/javase/locales-137662.html).
-4. Grab a TrueType font which supports your country's language, put it under `project_aeii/android/assets/fonts/`. We recommend that you rename the font's filename to your country's locale ID.
-5. Go to `project_aeii/android/assets/lang/`, duplicate `en_US.dat` file, rename it to your country's locale ID and translate all the texts after `=`. Note that for the first line, just change `en_US.ttf` to the font filename you are using.
-6. Save the language file in UTF-8 format and you are done. Submit a pull request and we will add you to credits once your changes are merged.
+Simply speaking, language files only contain `<key>=<text>` pairs. The keys (which are on the left) are not supposed to be modified, and you are only meant to translate the right part. But good thing is that, with in-game translation tool, it will take care of the keys for you so you can focus on translating the right part.
 
-**Note:** if you want to see how the font looks in the game, please check the following section.
+### How to Submit Translation?
 
-# Compile & run the project
+Login into your in-game online account, if you have already created your translation the game will let you upload it to the server as a language pack. But if you have not translated enough entries (keys) the server might reject your upload.
 
-This project is being developed using [IntellilJ IDEA](https://www.jetbrains.com/idea/), however if you're planning to use [Android Studio](https://developer.android.com/studio/index.html) it will also be fine.
-Check out the project from your Github repository after forking it. If you have already checked out the project using Github Desktop then simply import the project from your local repository.
-After gradle build is done go for `Build -> Make Project`. Then you can create launchers to launch the game.
+### Keep in Mind
 
-* Desktop Launcher **main class:** `net.toyknight.aeii.desktop.DesktopLauncher`, **module:** `desktop`, **working directory:** `<project directory>\project_aeii\android\assets`
-* Android Launcher **module:** `android`.
-* iOS Launcher **main class:** `net.toyknight.aeii.IOSLauncher`, **module:** `ios`.
-
-**Note:** You will need to run gradle task `desktop:dist` before launch desktop version.
-
+* **DO NOT** replace placeholders (`%s`, `%d`, etc) and you need to **keep their order** during translation.
+* You can use `\n` to create a new line for messages and paragraphs (not recommended for labels).
